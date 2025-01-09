@@ -28,7 +28,7 @@ public class BFS {
             int levelSize = queue.size();
             List<Integer> currentLevel = new ArrayList<>(levelSize); // to store current level list values
             // even if wont use levelSize also it wont give u error
-            for (int i=0; i < levelSize; i++) {
+            for (int i = 0; i < levelSize; i++) {
                 // the node which we are removing from the queue we added before to the queue at first step it is 1 in the queue
                 // it will ne now removed from queue and we aslo,set it as the node for the Tree
                 TreeNode currentNode = queue.poll();
@@ -48,7 +48,61 @@ public class BFS {
     }
 
 
-        public static void main(String[] args) {
+    public TreeNode findSuccessor(TreeNode root, int key) {
+
+
+        if (root == null) {
+            return null;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+
+                TreeNode currentNode = queue.poll();
+
+                if (currentNode.left != null) {
+                    queue.offer(currentNode.left);
+                }
+                if (currentNode.right != null) {
+                    queue.offer(currentNode.right);
+                }
+                if( currentNode.val == key) {
+                     break;
+                }
+        }
+        return queue.peek();
+
+
+//        "Everything in Java is Strings for JVM"
+//        This is not entirely accurate. While Java provides robust support for converting objects to strings (like toString()), the JVM doesn't treat everything as strings. Here's why:
+//
+//        Data Types: The JVM recognizes many data types (e.g., int, double, boolean, objects, etc.). These are managed based on their specific type, not as strings.
+//        String Representation: When we print an object or primitive value, Java converts it to a string (via methods like toString() for objects or string concatenation). This is for convenience, not because the JVM inherently treats everything as strings.
+//        JVM Internals: Under the hood, the JVM uses binary representations for primitives and objects and does not treat them as text or strings.
+//        Conversion to Strings
+//        Java's flexibility with toString() and string concatenation (+) might give the impression that everything is treated as strings because these operations are so common. However:
+//
+//        Strings are managed by the JVM's String Pool, which is a special part of memory.
+//        Primitives and objects have their native representations in memory and are only converted to strings when needed (e.g., for printing or concatenation).
+
+
+//        int num = 42;
+//        System.out.println(num); // The primitive int is converted to "42" as a string for printing.
+//
+//        Object obj = new Object();
+//        System.out.println(obj); // Calls obj.toString() (default implementation) to get a string representation.
+
+
+    }
+
+
+
+    public static void main(String[] args) {
+            int key = 3;
             TreeNode root = new TreeNode(1);
             root.left = new TreeNode(2);
             root.right = new TreeNode(3);
@@ -56,7 +110,8 @@ public class BFS {
             root.left.right = new TreeNode(5);
 
             BFS bfs = new BFS();
-            List<List<Integer>> result = bfs.levelOrder(root);
+            //List<List<Integer>> result = bfs.levelOrder(root);
+            TreeNode result = bfs.findSuccessor(root , key);
             System.out.println(result);
         }
 
