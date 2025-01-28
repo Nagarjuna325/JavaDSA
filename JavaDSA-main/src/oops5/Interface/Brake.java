@@ -10,7 +10,7 @@ public class Brake {
 
 // as we see the conflict is resolved in abstract class also but we cannot achieve multiple inheritence in abstract class.
 
-// WE CAN IMPLEMENT A INTERFACE OF 2 DIFFERENT CLASSES IT DOESNT CARE WHETHER 2 OR RELATED OR NOT- "IMPORTANT"
+// WE CAN IMPLEMENT A INTERFACE OF 2 DIFFERENT CLASSES IT DOESNT CARE WHETHER 2  classes OR RELATED OR NOT- "IMPORTANT"
 
 //Q1.why does we cannot achieve mutiple inheritence with abstract , but why we can achieve with interface explain in a simple and easy way with in depth considering all the edge cases?
 //
