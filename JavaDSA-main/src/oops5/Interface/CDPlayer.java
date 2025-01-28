@@ -11,3 +11,6 @@ public class CDPlayer implements Media {
         System.out.println("Music stop");
     }
 }
+
+
+// implementing separate class for interface. why we need this?
