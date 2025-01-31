@@ -1,6 +1,6 @@
 package oops5.abstract1;
 
-public class Daughter {
+public class Daughter extends Parent{
     public Daughter(int age) {
         super(age);
     }

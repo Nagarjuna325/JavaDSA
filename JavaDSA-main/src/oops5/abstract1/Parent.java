@@ -1,6 +1,6 @@
 package oops5.abstract1;
 
-public class Parent {
+public abstract class Parent {
     int age;
     final int VALUE;
 

@@ -7,14 +7,14 @@ import java.util.List;
 // https://docs.oracle.com/javase/tutorial/java/generics/restrictions.html#createObjects
 
 // here T should either be Number or its subclasses
-public class wildcardExample {
+public class wildcardExample<T> {
     private Object[] data;
     private static int DEFAULT_SIZE = 10;
     private int size = 0; // also working as inde value
 
-    public WildcardExample() {
-        data = new Object[DEFAULT_SIZE];
-    }
+//    public WildcardExample() {
+//        data = new Object[DEFAULT_SIZE];
+//    }
 
 //    public void getList(List<Number> list) {
 //        // only numbers we can pass not even its subclass also like int float , double etc
@@ -72,7 +72,7 @@ public class wildcardExample {
 
     public static void main(String[] args) {
 //        ArrayList list = new ArrayList();
-        WildcardExample list = new WildcardExample();
+        //WildcardExample list = new WildcardExample();
 //        list.add(3);
 //        list.add(5);
 //        list.add(9);
@@ -87,12 +87,12 @@ public class wildcardExample {
 //        list2.add("dfghj");
 
 
-        WildcardExample<Integer> list3 = new WildcardExample<>();
-        for (int i = 0; i < 14; i++) {
-            list3.add(2 * i);
-        }
+        //WildcardExample<Integer> list3 = new WildcardExample<>();
+//        for (int i = 0; i < 14; i++) {
+//            list3.add(2 * i);
+//        }
 
-        System.out.println(list3);
+        //System.out.println(list3);
 
     }
 }
