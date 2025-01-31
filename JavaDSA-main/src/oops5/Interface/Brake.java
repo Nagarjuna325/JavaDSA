@@ -1,7 +1,7 @@
 package oops5.Interface;
 
-public class Brake {
-    void brake();
+public interface Brake {
+    //void brake();
 //    void start();
 }
 

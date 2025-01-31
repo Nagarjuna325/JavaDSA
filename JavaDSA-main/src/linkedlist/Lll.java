@@ -16,8 +16,32 @@ public class Lll {
        this.size = 0;
    }
 
+    private class Node {
 
-  public void insertFirst(int val){
+        private int value;
+        private Node next; // intial nothing will point to Null
+
+
+        // constructor
+        public Node(int value){
+            this.value = value;
+        }
+
+        // constructor
+        public Node(int value, Node next){
+
+            this.value = value;
+            this.next = next;
+        }
+
+
+
+
+
+    }
+
+
+    public void insertFirst(int val){
 
        Node node = new Node(val);
        node.next = head;
@@ -181,29 +205,6 @@ public class Lll {
         prev.next = prev.next.next; // it will point to 9 now
 
         return val;
-    }
-    private class Node {
-
-        private int value;
-        private Node next; // intial nothing will point to Null
-
-
-        // constructor
-        public Node(int value){
-            this.value = value;
-        }
-
-        // constructor
-        public Node(int value, Node next){
-
-            this.value = value;
-            this.next = next;
-        }
-
-
-
-
-
     }
 
     // Leetcode 83 questions

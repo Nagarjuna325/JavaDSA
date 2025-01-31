@@ -1,0 +1,147 @@
+I didnt understood still because both are changing the value right anyway then what it pass by reference  means and pass by value means I am still getting confusion still
+Got it! Let me explain pass-by-value and pass-by-reference in the simplest way possible with clear examples. This will help you understand why Java behaves the way it does and how it differs from languages that use pass-by-reference.
+
+Pass-by-Value
+In pass-by-value, a copy of the variable is passed to the function. This means:
+
+If the variable is a primitive (e.g., int, char), the function gets a copy of the value.
+
+If the variable is an object (e.g., an array, a class instance), the function gets a copy of the reference (memory address) to the object.
+
+Key Points:
+Changes to primitives inside the function do not affect the original variable.
+
+Changes to objects inside the function do affect the original object because the copy of the reference still points to the same object in memory.
+
+Pass-by-Reference
+In pass-by-reference, the actual variable (or memory address) is passed to the function. This means:
+
+Changes to the variable inside the function directly affect the original variable.
+
+Key Points:
+Changes to primitives or objects inside the function affect the original variable.
+
+Example 1: Pass-by-Value in Java
+Java uses pass-by-value. Let’s see how it works with primitives and objects.
+
+Code:
+java
+Copy
+public class Main {
+    public static void main(String[] args) {
+        int x = 10; // Primitive
+        int[] arr = {1, 2, 3}; // Object (array)
+
+        modifyPrimitive(x); // Pass primitive by value
+        modifyArray(arr); // Pass object by value (copy of reference)
+
+        System.out.println(x); // Output: 10 (unchanged)
+        System.out.println(Arrays.toString(arr)); // Output: [100, 2, 3] (changed)
+    }
+
+    static void modifyPrimitive(int x) {
+        x = 100; // Modify the copy of x
+    }
+
+    static void modifyArray(int[] arr) {
+        arr[0] = 100; // Modify the original array
+    }
+}
+Explanation:
+Primitive (x):
+
+A copy of x is passed to modifyPrimitive.
+
+Changes to x inside the function do not affect the original x.
+
+Object (arr):
+
+A copy of the reference to arr is passed to modifyArray.
+
+Changes to arr inside the function affect the original array because the copy of the reference still points to the same array in memory.
+
+Example 2: Pass-by-Reference in C++
+C++ supports pass-by-reference. Let’s see how it works.
+
+Code:
+cpp
+Copy
+#include <iostream>
+using namespace std;
+
+void modifyPrimitive(int &x) { // Pass by reference
+    x = 100; // Modify the original x
+}
+
+void modifyArray(int arr[]) { // Arrays are always passed by reference in C++
+    arr[0] = 100; // Modify the original array
+}
+
+int main() {
+    int x = 10; // Primitive
+    int arr[] = {1, 2, 3}; // Array
+
+    modifyPrimitive(x); // Pass primitive by reference
+    modifyArray(arr); // Pass array by reference
+
+    cout << x << endl; // Output: 100 (changed)
+    for (int i = 0; i < 3; i++) {
+        cout << arr[i] << " "; // Output: 100 2 3 (changed)
+    }
+    return 0;
+}
+Explanation:
+Primitive (x):
+
+The actual variable x is passed to modifyPrimitive.
+
+Changes to x inside the function affect the original x.
+
+Object (arr):
+
+The actual array is passed to modifyArray.
+
+Changes to arr inside the function affect the original array.
+
+
+Key Difference: Pass-by-Value vs. Pass-by-Reference
+Feature	Pass-by-Value (Java)	Pass-by-Reference (C++)
+Primitives	A copy of the value is passed.	The actual variable is passed.
+Objects	A copy of the reference is passed.	The actual object is passed.
+Changes to Primitives	Do not affect the original variable.	Affect the original variable.
+Changes to Objects	Affect the original object.	Affect the original object.
+Your Doubt: Why Does Java Seem Like Pass-by-Reference for Objects?
+In Java, when you pass an object (like an array), you’re passing a copy of the reference to the object. This means:
+
+The reference points to the same object in memory.
+
+Changes to the object inside the function affect the original object.
+
+However, if you reassign the reference inside the function, it does not affect the original reference.
+
+Example:
+java
+Copy
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3};
+        modifyArray(arr);
+        System.out.println(Arrays.toString(arr)); // Output: [1, 2, 3] (unchanged)
+    }
+
+    static void modifyArray(int[] arr) {
+        arr = new int[]{100, 200, 300}; // Reassign the reference
+    }
+}
+Explanation:
+The original array is not modified because the function reassigns the copy of the reference to a new array.
+
+Summary
+Pass-by-value: A copy of the variable is passed. For objects, a copy of the reference is passed.
+
+Pass-by-reference: The actual variable is passed.
+
+In Java, objects appear to behave like pass-by-reference because the copy of the reference still points to the same object in memory.
+
+Let me know if this clears up your confusion! 😊
+

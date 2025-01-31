@@ -1,6 +1,6 @@
 package oops5.Interface;
 
-public class Media {
+public interface Media {
     void start();
     void stop();
 

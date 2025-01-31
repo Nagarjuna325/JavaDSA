@@ -1,5 +1,5 @@
 package oops6;
 
-public class GenericInterface<T> {
+public interface GenericInterface<T> {
     void display(T value);
 }

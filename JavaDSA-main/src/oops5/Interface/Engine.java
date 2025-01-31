@@ -1,9 +1,11 @@
 package oops5.Interface;
 
-public class Engine {
+public interface Engine {
     static final int PRICE = 78000;
 
     void start();
-    void stop();
+
+    void stop() ;
+
     void acc();
 }

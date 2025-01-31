@@ -1,6 +1,6 @@
 package oops5.Interface.extendDemo;
 
-public interface B {
+public interface B extends A {
     void greet();
 }
 

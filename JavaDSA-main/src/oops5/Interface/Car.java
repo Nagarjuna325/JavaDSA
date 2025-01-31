@@ -2,8 +2,7 @@ package oops5.Interface;
 
 public class Car implements Engine, Brake, Media{
     int a = 30;
-
-    @Override
+    //@Override
     public void brake() {
         System.out.println("I brake like a normal Car");
     }

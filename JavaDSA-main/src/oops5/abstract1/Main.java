@@ -7,7 +7,8 @@ public class Main {
 
         son.normal();
 
-        Parent daughter = new Parent(28);
+        // Parent daughter = new Parent(28); - error find out why?
+        Parent daughter = new Daughter(28);
         daughter.career();
 
         Parent.hello();
