@@ -9,7 +9,7 @@ public class Human {
 
     static void message() {
         System.out.println("Hello world");
-//        System.out.println(this.age); // cant use this over here
+//        System.out.println(this.age); // cant use this over here? Why?
     }
 
     // create a constructor
@@ -18,9 +18,10 @@ public class Human {
         this.name = name;
         this.salary = salary;
         this.married = married;
-        // this.popultion += 1; - it will be wrong when we declare a variable as a static it is independent of object
+        // this.popultion += 1; - it will be wrong(it will work) when we declare a variable as a static it is independent of object
         // so we need to use className as below but it will also give same output with the "this" also why?
-        // because
+        // because first it checks whether the variable is in instance of the object or not , As static belongs to class it will be
+        // in the class not in object so it updates there.(for clear understanding see the pdf diagram).
 
         Human.population += 1; // we use className to access the static variables or class variables
     }

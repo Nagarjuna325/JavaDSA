@@ -32,6 +32,9 @@ public class StaticInt {
 
         // when we created here other object also, but "I am in static block" run only once when a first object is created
         StaticInt obj2 = new StaticInt();
-        System.out.println(StaticInt.a + " " + StaticInt.b);
+        System.out.println(StaticInt.a + " " + StaticInt.b); // what is the output now
+        // 4, 23
+        // second time we created the object right the static block does not run again it ran only once when the first
+        // obj is created and class is loaded.- This is the main outcome we need to studied from the code.
     }
 }
