@@ -20,6 +20,8 @@ public class BoxWeight  extends Box {
     BoxWeight (BoxWeight other) {
         super(other); // so will call the Box constructor which has a single argument Box(Box old) this one
         // what we access depends on the reference variable not on the object type
+
+        // super will call the constuctor just above its , immediate parent.
         weight = other.weight;
     }
 
