@@ -1,3 +1,19 @@
 
+TIMESTAMP -1:33:00 very very important entire course.
+
 ploy means many
 morphism means ways to represent
+
+
+  Parent obj = new Child();
+
+  here which method will be called depends on Object() type defines(Child()) - means which method to execute or run.
+  This is known as upcasting - This is how overriding works.
+
+  But how does JAVA determines this? - BY using "dynamic method dispatch".- it is a mechanism which decides which method to run in case of overriden method, at run-time.
+  But the main point here is if that method is not in the parent class then it will give us an error, even-though it is accessing
+  it from the child class, we need to have that method in the parent class, which is overriden in child class.
+
+Types pf polymorphism
+
+1.

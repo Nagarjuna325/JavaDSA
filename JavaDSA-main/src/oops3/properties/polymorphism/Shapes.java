@@ -1,10 +1,16 @@
 package oops3.properties.polymorphism;
 
 public class Shapes {
-    public void area() {
+    public void area(){  // late binding
+        System.out.println("Area of Shapes");
     }
 }
 
+
+// EARLY binding :
+// final void area(){
+   // System.out.println("I am in shapes");
+}
 
 // Uses cases of "FINAL" keyword.
 // 1.To define a variable as fixed

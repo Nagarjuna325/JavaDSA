@@ -7,6 +7,7 @@ public class Main {
         Shapes square = new Square();
 
         circle.area();
+        shape.area();
     }
 
 }
@@ -20,12 +21,13 @@ public class Main {
 
 // if the type of refernce variable is Parent class and the type of object is of subclass then the
 // which method will be called depends on the type of child(it is called "upcasting" or simpely "overriding" ) - but the twist is as we know we learnt that
-// the variables or methods an  object can as access depends on the refernce type not on the object type
-// but here also refernce type is only deciding but the child class is overridding the parent class method. so it will run child class
+// the variables or methods , than an  object can as access depends on the refernce type not on the object type
+// but here also "refernce type"(which is Shapes class) is only deciding(which one we have access to), but the child class is overridding the parent class method. so it will run child class
 // method if both parent and child have a same method, but if the parent class does not have the child method which we are
-// accessing , it will give us error and we cannot acces the child one , so the parent class also must have it.
+// accessing , it will give us error and we cannot acces the child one , so the parent class also must have it.(the method which we have overriden in child class)
 
-// OBJECT TYPE DEFINES WHICH ONE TO RUN , REFERENCE TYPE DEFINES WHICH ONE TO ACCESS.
+
+// OBJECT TYPE DEFINES WHICH ONE TO RUN , REFERENCE TYPE DEFINES WHICH ONE TO ACCESS. - IMP
 
 // BUT HOW JAVA DETEMINES THIS?
 // by using dynamic method dispatch - at runtime it determines , it is a mechanism by which a overriden method is determined at run time

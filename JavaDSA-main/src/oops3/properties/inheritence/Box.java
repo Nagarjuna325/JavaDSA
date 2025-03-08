@@ -25,7 +25,7 @@ public class Box {
 
     // cube
     Box (double side) {
-        // super(); Object class,  every class has object as a superclass.
+        // super(); why no error? Object class,  every class has object as a superclass. main class like GOD.
         this.w = side;
         this.l = side;
         this.h = side;
@@ -38,9 +38,14 @@ public class Box {
         this.w = w;
     }
 
+    // passing another constructor to a constructor
     Box(Box old) {
         this.h = old.h;
         this.l = old.l;
         this.w = old.w;
+    }
+
+    public void information(){
+        System.out.println("Running");
     }
 }
