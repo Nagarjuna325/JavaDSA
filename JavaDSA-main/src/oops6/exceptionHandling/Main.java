@@ -11,11 +11,9 @@ public class Main {
             if (name.equals("Kunal")) {
                 throw new MyException("name is kunal");
             }
-        } catch (MyException e) {
+        } catch (MyException | ArithmeticException e) {
             System.out.println(e.getMessage());
-        } catch (ArithmeticException e) {
-            System.out.println(e.getMessage());
-        } catch (Exception e) {
+        } catch (Exception e) { // Exception is a class which has getMessage() method.
             System.out.println("normal exception");
         } finally {
             System.out.println("this will always execute"); //

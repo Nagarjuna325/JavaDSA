@@ -1,6 +1,6 @@
 package oops4.access;
 
-public class ObjectDemo {
+public class   ObjectDemo {
     int num;
     float gpa;
 

@@ -2,6 +2,7 @@ package oops2.staticexample;
 
 
 // outer class cannot be a static class but inner class can be static why?
+
 //class Test { // it now not dependent on the object of the Innerclass - so it will work
 //    static  String name;
 //    public Test(String name) {
@@ -27,6 +28,7 @@ public class Innerclass {
 
         @Override
         public String toString() {
+
             return name;
         }
     }
@@ -40,7 +42,7 @@ public class Innerclass {
         System.out.println(a);
 
        System.out.println(a.name);
-      System.out.println(b.name);
+       System.out.println(b.name);
 
       // what will be the output will be now? for the above static inner class?
         // kunal

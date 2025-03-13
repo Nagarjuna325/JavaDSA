@@ -1,7 +1,7 @@
 package oops7.enums;
 
 public class Basic {
-    enum Week {
+    enum Week {// overall type
         Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday;
         // these are enum constants
         // public, static and final

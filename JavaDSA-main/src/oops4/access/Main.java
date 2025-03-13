@@ -8,7 +8,8 @@ public class Main {
         // 2. modify the data members
 
 //        ArrayList<Integer> list = new ArrayList<>(23);
-//        list.DEFAULT_CAPACITY;
+//        list.DEFAULT_CAPACITY; // error we cannot access the variable DEFAULT_CAPACITY which is in arralist class which is private.
+
 
         obj.getNum();
         int n = obj.num;

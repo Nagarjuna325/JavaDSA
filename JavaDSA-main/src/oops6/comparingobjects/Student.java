@@ -17,10 +17,10 @@ public class Student implements Comparable<Student>{
     @Override
     public int compareTo(Student o) {
         System.out.println("in compareto method");
-        int diff = (int)(this.marks - o.marks);
+        int diff = (int)(this.marks - o.marks);  // o - old marks.
 
         // if diff == 0: means both are equal
-        // if diff < 0: means o is bigger else o is smaller
+        // if diff < 0: means "o" is bigger else o is smaller
 
         return diff;
     }

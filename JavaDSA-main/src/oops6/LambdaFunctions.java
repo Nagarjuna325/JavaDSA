@@ -9,7 +9,8 @@ public class LambdaFunctions {
         for (int i = 0; i < 5; i++) {
             arr.add(i + 1);
         }
-//        arr.forEach((item) -> System.out.println(item * 2));
+     arr.forEach((item) -> System.out.println(item * 2)); // lambda expression.
+        //check consumer type built in interface. accepts a single parameter.(like (item) )
 
         Consumer<Integer> fun = (item) -> System.out.println(item * 2);
         arr.forEach(fun);
@@ -25,6 +26,7 @@ public class LambdaFunctions {
     }
 
     private int operate(int a, int b, Operation op) {
+
         return op.operation(a, b);
     }
 }

@@ -20,7 +20,7 @@ public class Main {
 //            }
 //        });
 
-        Arrays.sort(list, (o1, o2) -> -(int)(o1.marks - o2.marks));
+        Arrays.sort(list, (o1, o2) -> -(int)(o1.marks - o2.marks));  // above 4 lines of code written using lambda expressions
 
         System.out.println(Arrays.toString(list));
 

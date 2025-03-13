@@ -4,6 +4,7 @@ public class ObjectPrint {
     int num;
 
     public ObjectPrint(int num) {
+
         this.num = num;
     }
 
@@ -20,3 +21,7 @@ public class ObjectPrint {
         System.out.println(obj);
     }
 }
+
+
+// By default in java every class extends Object class
+// In above its like  class ObjectPrint extends Object

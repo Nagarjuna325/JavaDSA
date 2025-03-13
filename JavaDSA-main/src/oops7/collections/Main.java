@@ -24,6 +24,8 @@ public class Main {
         vector.add(15);
         vector.add(56);
 
+        //List<Integer> vector2 = new List<Integer>(); - Think why error?
+
         System.out.println(vector);
     }
 }
