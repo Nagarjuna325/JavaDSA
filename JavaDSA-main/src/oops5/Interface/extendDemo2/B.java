@@ -3,6 +3,12 @@ package oops5.Interface.extendDemo2;
 public interface B {
     void greet();
 
+
+    //    @Override
+    //    public void fun() {
+   //
+    //    } - find error why?
+
 }
 
 

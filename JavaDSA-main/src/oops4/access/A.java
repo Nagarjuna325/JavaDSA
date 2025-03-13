@@ -6,10 +6,12 @@ public class A {
     int[] arr;
 
     public int getNum() { // getters and setters
+
         return num;
     }
 
     public void setNum(int num) {
+
         this.num = num;
     }
 

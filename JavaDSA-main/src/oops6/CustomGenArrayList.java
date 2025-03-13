@@ -2,9 +2,15 @@ package oops6;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// generic were introduced in java , it is checked at compile time only. SO why we need to observe this point carefully?
+
+// static fields whose type is of type parameter is not allowed
+// static T vas;- not allowed what is the type of vas , we dont know as we dont what type is T of yet.
+// cannot use casts or instanceof with Parameterized Types.
+
 // https://docs.oracle.com/javase/tutorial/java/generics/restrictions.html#createObjects
 public class CustomGenArrayList<T> {
-    private Object[] data;
+    private Object[] data;  // if we use  T[] data - we will get error why?
     private static int DEFAULT_SIZE = 10;
     private int size = 0; // also working as index value
 
@@ -34,7 +40,7 @@ public class CustomGenArrayList<T> {
     }
 
     public T remove() {
-        T removed = (T)(data[--size]);
+        T removed = (T) data[--size];
         return removed;
     }
 

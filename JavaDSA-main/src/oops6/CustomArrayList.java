@@ -9,6 +9,7 @@ public class CustomArrayList {
     private int size = 0; // also working as index value
 
     public CustomArrayList() {
+
         this.data = new int[DEFAULT_SIZE];
     }
 
@@ -71,11 +72,14 @@ public class CustomArrayList {
 
         System.out.println(list);
 
+        // this is internal arraylist
         ArrayList<Integer> list2 = new ArrayList<>();
-//        list2.add("dfghj");
+//        list2.add("dfghj"); error..
     }
 }
 
-// ArrayList<Integer> <Integer> defines the type of the arraylist - they are also called as parametriezed types in arrays.
+// ArrayList<Integer> <Integer> defines the type of the arraylist - they are also called as "parametriezed" datatypes in arrays. - eg ArrayList so on..
 // <Integers> generics
 // but in CustomArrayList as we did not specify any data type we can just pass any data that we want to pass.
+// the operations of doubling size of the array and copying all the elements into , the average time complexity is constant. why?
+// here something comes like ammoratized constant.

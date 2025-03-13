@@ -2,6 +2,8 @@ package oops5.nested;
 
 public class A {
 
+
+    // nested interface.
     public interface NestedInterface {
         boolean isOdd(int num);
     }

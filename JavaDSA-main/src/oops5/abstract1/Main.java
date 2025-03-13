@@ -12,6 +12,8 @@ public class Main {
         daughter.career();
 
         Parent.hello();
-//        Parent mom = new Parent(45);
+//        Parent mom = new Parent(45);  // what it will give us?
+        // and why does it gives us error?
+        // Because we cannot create an object to a abstract class.
     }
 }
