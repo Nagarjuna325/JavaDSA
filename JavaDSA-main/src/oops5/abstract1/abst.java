@@ -13,7 +13,14 @@ public class abst {
 // That why. as abstract class doesnt have implemetaion only subclass will need to implement so there is no confusion.
 // but still we cannot achieve multiple inheritance -
 // public class Son extends Parents , Parents2 - no we cannot still with abstraction for this we will use interface.
+//1️⃣ Understanding Abstract Classes
+//An abstract class:
 //
+//Can have abstract methods (method signature without implementation).
+//
+//Can also have concrete methods (methods with implementation).
+//
+//Cannot be instantiated directly.
 
 // if a class contains one or more methods then a class needs to be declared as a abstract class.
 // every child class must override all the methods of parent class.
