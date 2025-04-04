@@ -10,6 +10,11 @@ public class Student implements Comparable<Student>{
     }
 
     @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
     public String toString() {
         return marks + "";
     }
@@ -30,3 +35,28 @@ public class Student implements Comparable<Student>{
 // we can compare objects using the "COMPARABLE" interface in java.
 // we can also have a interface with generic types.
 // "compareTo" method from "comparabl" interface.
+
+
+//  String obj1 = "Sai";  HashCode1 = 1234;
+//  String obj2 = "Sai";  obj2 = HashCode1;
+//  String obj3 = new String("Sai");  HashCode2 = 121333;
+
+// == True , .equal()
+
+// ==  False - reference compares(HashCode) , .equalsTo() - True
+//
+
+
+
+// Obj
+
+// class Human{
+//   String Name;
+ //  int id;
+
+// }
+
+// Human h1 = new Human("sai", 1);  hashcode1 = 1234
+// Human h2 = new Human("sai", 1);  hashcode2 = 3271
+
+// h1 == h2

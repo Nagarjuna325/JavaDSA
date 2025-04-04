@@ -61,7 +61,7 @@ constructor is a function that runs,  when you create an object and it allocates
 and we want to to bind this arguments with the object.(So that means in before we were doing like kunal.name or kunal.rollno , for attaching
 objects with instance variables of the object,so that is we are doing with constructor).
 
-the constructors does not have the return type because the return of the constructor is same as the class type.
+the constructors does not have the return type because the return type of the constructor is same as the class type.
 
 constructor is automatically called once it is defined in the class , when we create an object to the class.
 

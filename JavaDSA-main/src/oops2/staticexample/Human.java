@@ -18,7 +18,7 @@ public class Human {
         this.name = name;
         this.salary = salary;
         this.married = married;
-        // this.popultion += 1; - it will be wrong(it will work) when we declare a variable as a static it is independent of object
+        // this.popultion += 1; - it will be wrong(it will work correctly but we should not use it) when we declare a variable as a static it is independent of object
         // so we need to use className as below but it will also give same output with the "this" also why?
         // because first it checks whether the variable is in instance of the object or not , As static belongs to class it will be
         // in the class not in object so it updates there.(for clear understanding see the pdf diagram).

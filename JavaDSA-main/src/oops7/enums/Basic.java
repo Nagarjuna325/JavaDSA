@@ -6,7 +6,7 @@ public class Basic {
         // these are enum constants
         // public, static and final
         // since its final you cannot create child enums
-        // type is Week
+        // type of all this Monday ,... so on is where it is declared, Week. is Week
 
         void display() {
 
@@ -20,14 +20,14 @@ public class Basic {
         public void hello() {
             System.out.println("hey how are you");
         }
-        // this is not public or protected, only private or default
+        //  the above constructor, Week() is not public or protected, only private or default
         // why? we dont want to create new objects
         // this is not the enum concept, thats why
 
         // internally: public static final Week Monday = new Week();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
         Week week;
         week = Week.Monday;
         week.hello();
@@ -35,7 +35,8 @@ public class Basic {
 //        for(Week day : Week.values()) {
 //            System.out.println(day);
 //        }
-
+//       Class obj = Class.forName("Basic");
+//       System.out.println(obj);
 //        System.out.println(week.ordinal());
     }
 }
@@ -44,4 +45,6 @@ public class Basic {
 // enums are used to create our own datatypes in java.they are constant and cannot be changed. and also static.
 // when we want to use a fixed group of objects we can use enums. Jan , feb march,.. dec.
 
-//
+// a enum cannot be a super class also why?
+// enum can implement has many interfaces
+// but it cannot extend a class.
