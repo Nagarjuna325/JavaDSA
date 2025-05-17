@@ -35,12 +35,16 @@ public class QuickSort {
         int pivot = nums[m];
 
         while( s <= e) {
+
+            // if alredy sorted it wont swap
             while (nums[s] < pivot) {
                 s++;
             }
             while (nums[e] > pivot) {
                 e--;
             }
+
+            // watch the concept again from time stamp 10:00 minutes to last still.
 
             // also a reason why we use Quick sort instead of merge SORT BECUASE if it is sorted it wont swap
 
