@@ -8,7 +8,7 @@ public class FirstAndLastPosition {
 
         int[] arr = {3, 4, 5, 5,7,7,7,7,9,8,9};
 
-        int target = 0;
+        int target = 7;
 
         int[] ans = searchRange(arr, target);
 
