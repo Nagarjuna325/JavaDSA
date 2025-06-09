@@ -57,7 +57,10 @@ public class Lll {
   }
    public void insertLast( int val){
 
-       if( tail == null) {
+       if( tail == null) {  // So observe carefully here that if there
+           // tail is null means there is no nodes for the LinkedList it is just empty
+           // if it even has a single node also then as from above point we know
+           // that the tail will be equal to head right tail == head as we assigned.
 
            insertFirst(val);
 
@@ -95,6 +98,8 @@ public class Lll {
        Node node = new Node(val , temp.next);
 
        temp.next = node;
+
+       //temp = node;
        size++;
    }
 
@@ -174,7 +179,8 @@ public class Lll {
    }
    public Node get(int index){
 
-       Node node = head;
+       Node node = head;  // Observe here carefully we just created a reference variable(like a pointer) which is
+       // node to which we assigned the head (pointer or a reference )
 
        for( int i=0; i< index; i++){
 
@@ -183,6 +189,25 @@ public class Lll {
 
        return node;
    }
+
+
+   // if given a value(instead of index) and asked to return the node of the value we can use this
+
+    public Node find(int value){
+
+       Node node = head;
+
+       while(node != null){
+           if( node.value == value){
+               return node;
+           }
+           node = node.next;
+       }
+
+       return null;
+
+       // compldexity O(n)
+    }
 
    // delete an index at any position  we can use do like this
 
@@ -203,6 +228,8 @@ public class Lll {
        int val = prev.next.value; // remove value from the list it will give 8 vale
 
         prev.next = prev.next.next; // it will point to 9 now
+        // so if we observe carefully this is we are just making changes to references which mean changes the object via the
+        // reference if we make the change via reference we make changes to actual object.
 
         return val;
     }
