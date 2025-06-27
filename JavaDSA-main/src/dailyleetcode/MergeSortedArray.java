@@ -1,5 +1,7 @@
 package dailyleetcode;
 
+import java.util.Scanner;
+
 public class MergeSortedArray {
 
     // LC 88 problem
@@ -19,6 +21,10 @@ public class MergeSortedArray {
         for (int num : nums1) {
             System.out.print(num + " ");
         }
+        Scanner in = new Scanner(System.in);
+        System.out.println(in.next());
+
+        char ch = in.next().trim().charAt(0);
     }
 
     public static void merge(int[] nums1, int m, int[] nums2, int n) {

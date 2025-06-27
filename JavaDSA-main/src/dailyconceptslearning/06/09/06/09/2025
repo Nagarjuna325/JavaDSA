@@ -1,0 +1,93 @@
+06/09/2025
+
+char ch = in.next().trim().charAt(0); we know in is a object variable in Scanner class and by using that we are calling the next() method which is in that class thats good, but trim()  and charAt() methods are in String class right how we are able to call those with out an object for that class or even using the class name
+How in.next().trim().charAt(0) Works Without Explicit String Object
+This line of code:
+
+java
+char ch = in.next().trim().charAt(0);
+involves method chaining, where each method returns an object that the next method can act upon. Here's the breakdown:
+
+1. Step-by-Step Execution
+Step	Method Call	Return Type	What Happens?
+1	in.next()	String	Scanner reads the next token (word) as a String.
+2	.trim()	String	Trims whitespace from the String and returns a new String.
+3	.charAt(0)	char	Returns the first character of the trimmed String.
+2. Why No Explicit String Object is Needed
+in.next() returns a String object (let’s call it tempString).
+
+tempString.trim() is called on that String object (no need for new String()).
+
+trim() returns another String object (let’s call it trimmedString).
+
+trimmedString.charAt(0) extracts the first character.
+
+Equivalent Unchained Code:
+
+java
+String tempString = in.next();   // Step 1: Scanner returns a String
+String trimmedString = tempString.trim(); // Step 2: Trim the String
+char ch = trimmedString.charAt(0); // Step 3: Get the first character
+3. Key Concepts
+(a) Method Chaining
+Each method returns an object, allowing the next method to be called on it.
+
+Example:
+
+java
+"  hello  ".trim().toUpperCase().substring(1); // "HELLO" → "ELLO"
+(b) String is a Special Class
+Strings are immutable, so methods like trim() return a new String.
+
+No need to explicitly create a String object—methods like next() already return one.
+
+(c) No new String() Required
+in.next() automatically returns a String object, so we can directly call String methods on it.
+
+4. Why It Doesn’t Need String Class Name
+We don’t write String.trim() or String.charAt() because:
+
+trim() and charAt() are instance methods (not static).
+
+They must be called on a String object (e.g., someString.trim()).
+
+in.next() provides that object implicitly.
+
+5. Common Mistakes
+❌ Trying to call trim() on Scanner:
+
+java
+in.trim() // ERROR: Scanner has no trim() method!
+✅ Correct: Call trim() on the String returned by next():
+
+java
+in.next().trim() // Works!
+6. Analogy
+Think of it like a factory assembly line:
+
+Scanner (in) produces a raw String (next()).
+
+The String goes to trimming station (trim()).
+
+The trimmed String goes to character extraction (charAt(0)).
+
+7. Key Takeaways
+Method Chaining: Call methods sequentially on returned objects.
+
+Implicit Objects: in.next() returns a String, so String methods can be called on it.
+
+No Explicit String Creation: The Scanner and method returns handle object creation.
+
+Instance Methods: trim() and charAt() are called on instances, not the String class.
+
+Final Answer
+You can chain trim() and charAt(0) after in.next() because:
+
+in.next() returns a String object.
+
+trim() and charAt() are instance methods of String.
+
+Method chaining allows calls on intermediate objects without explicit variables.
+
+This is a powerful feature of Java’s object-oriented design! 🚀
+
