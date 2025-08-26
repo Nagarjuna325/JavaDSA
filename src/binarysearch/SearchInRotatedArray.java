@@ -37,7 +37,8 @@ public class SearchInRotatedArray {
 
             return binary(nums, target, 0, pivot-1);  // what the mistake I made is that
             // here in the return statement if target is greater than pivot we know that right elements will be
-            // for sure will be less than left right as the array is in asscending order.
+            // for sure will be less than left right as the array is in ascending order.
+            // because we know that the pivot is the point where the array desc right
 
         }
 
@@ -81,14 +82,14 @@ public class SearchInRotatedArray {
 
             // 4 cases
             int mid = start + (end - start)/2;
-
+             // case 1
             if( mid < end && arr[mid] > arr[mid+1]  ){ // why the mid < end  because as we need to check the out of bound
                 return mid;
-            } if(mid < end && arr[mid] < arr[mid-1]){
+            } if(mid < end && arr[mid] < arr[mid-1]){ // case 2
                 return mid-1;
-            } if(arr[mid] <= arr[start]){
+            } if(arr[mid] <= arr[start]){ // case 3 start > mid
                 end = mid - 1;
-            }else{
+            }else{   // case 4 start < mid
                 start = mid+1;
             }
 

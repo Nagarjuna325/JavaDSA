@@ -4,7 +4,7 @@ public class SearchInMountain {
     public static void main(String[] args) {
 
     }
-    // https://leetcode.com/problems/find-in-mountain-array/
+    // https://leetcode.com/problems/find-in-mountain-array/-1095
     int search(int[] arr, int target) {
         int peak = peakIndexInMountainArray(arr);
         int firstTry = orderAgnosticBS(arr, target, 0, peak);
@@ -19,7 +19,7 @@ public class SearchInMountain {
         int start = 0;
         int end = arr.length - 1;
 
-        while (start < end) {
+        while (start < end) { // observe the edge cases properly here we took start < end and not start <= end
             int mid = start + (end - start) / 2;
             if (arr[mid] > arr[mid+1]) {
                 // you are in dec part of array
@@ -43,7 +43,7 @@ public class SearchInMountain {
         // find whether the array is sorted in ascending or descending
         boolean isAsc = arr[start] < arr[end];
 
-        while(start <= end) {
+        while(start <= end) { // Observe the edge cases here properly.
             // find the middle element
 //            int mid = (start + end) / 2; // might be possible that (start + end) exceeds the range of int in java
             int mid = start + (end - start) / 2;

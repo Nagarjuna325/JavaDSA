@@ -100,6 +100,9 @@ class Student {  // class is a template for creating objects (by using car templ
 //        kunal.marks = 80;
 //    }
 
+    // "this" keyword is used to automatically call the reference variable of an object
+    // and replace it with "kunal" or any other reference variable.("rahul")
+
 //    Student(){
 //        this.rno = 13;
 //        this.name = "kunal";

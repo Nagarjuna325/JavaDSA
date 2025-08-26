@@ -34,7 +34,7 @@ public class SearchInStrings {
 
         // case 1 - str1 length is 0
         if( str.length() == 0){
-            return ' '; // before error I got I used "" double quotes which is a string.
+            return ' '; // before error I got, I used "" double quotes which is a string.
         }
 
 
