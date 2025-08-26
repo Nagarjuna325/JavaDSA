@@ -1,0 +1,117 @@
+So how to setup the shortcuts our own for git commands in the terminal in vs code or Inteli j idea we use we git add . like commands right instead I can just git a , and for git commit -m "mse" like git c will do commit and also for git push origin master - git p
+
+
+ChatGPT said:
+Yes! You can create your own shortcuts (aliases) for commonly used Git commands — like git a for git add ., git c for git commit -m, etc. These shortcuts work in any terminal, including the integrated terminals in VS Code, IntelliJ IDEA, or standalone terminal apps.
+
+✅ 1. Set Git Aliases (Recommended Approach)
+📌 Example Aliases:
+Alias	Full Git Command
+git a	git add .
+git c	git commit -m
+git p	git push origin master
+git s	git status
+git co	git checkout
+git b	git branch
+
+🛠 How to Set Git Aliases
+Run these commands once in your terminal:
+
+bash
+Copy
+Edit
+git config --global alias.a "add ."
+git config --global alias.c "commit -m"
+git config --global alias.p "push origin master"
+git config --global alias.s "status"
+git config --global alias.co "checkout"
+git config --global alias.b "branch"
+✅ Usage:
+bash
+Copy
+Edit
+git a                  # git add .
+git c "added login"    # git commit -m "added login"
+git p                  # git push origin master
+git s                  # git status
+These aliases will now work in:
+
+VS Code terminal
+
+IntelliJ terminal
+
+Any command line (PowerShell, Bash, Zsh, etc.)
+
+🗂️ 2. View or Edit Aliases in .gitconfig
+To see or edit them manually:
+
+bash
+Copy
+Edit
+code ~/.gitconfig       # VS Code
+You'll see something like:
+
+ini
+Copy
+Edit
+[alias]
+    a = add .
+    c = commit -m
+    p = push origin master
+    s = status
+    co = checkout
+    b = branch
+⚠️ Gotchas
+git c "message" expects the message immediately after, no prompt.
+
+git commit -m alias can’t open the editor — it's a fixed message shortcut.
+
+If you're working on different branches, git p will always push to master — so use it only when working on master.
+
+Alternative for general push:
+
+bash
+Copy
+Edit
+git config --global alias.p "push"
+🧑‍💻 Bonus: Use Bash or Zsh Aliases (Optional)
+If you want even shorter commands without typing git, add shell aliases.
+
+Open your shell config file:
+For Bash: code ~/.bashrc
+
+For Zsh: code ~/.zshrc
+
+For PowerShell: $PROFILE
+
+Add:
+bash
+Copy
+Edit
+alias ga="git add ."
+alias gc='git commit -m'
+alias gp='git push origin master'
+alias gs='git status'
+Then run:
+
+bash
+Copy
+Edit
+source ~/.bashrc     # or ~/.zshrc
+Now:
+
+bash
+Copy
+Edit
+ga                 # runs git add .
+gc "fixed bug"     # git commit -m "fixed bug"
+✅ Best Practice Setup for Developers
+bash
+Copy
+Edit
+git config --global alias.a "add ."
+git config --global alias.cm "commit -m"
+git config --global alias.st "status"
+git config --global alias.ps "push"
+git config --global alias.plog "log --oneline --graph --all"
+Would you like a script to automate this setup or add it to IntelliJ’s terminal default config as well?
