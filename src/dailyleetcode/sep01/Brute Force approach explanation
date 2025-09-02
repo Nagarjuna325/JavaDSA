@@ -1,0 +1,240 @@
+So continue means it will skip the next lines of code and increase the i value right and checks right and what about break explain to me with a simple example also
+We are using three nested loops to generate all possible splits of the string into four segments.?
+
+ The condition `if (!isValid(first)) continue;` means that if the first segment is not valid, we skip the rest of the code inside the outer loop for the current `i` and move to the next `i`.
+ Similarly, for the inner loops, we use `continue` to skip the current iteration if the segment is invalid.
+ Let me explain `continue` and `break` with a simple example:
+ - `continue`: It skips the current iteration of the loop and proceeds to the next iteration.
+ - `break`: It exits the current loop entirely.
+ In our code, we use `continue` to skip the current segment if it is invalid, meaning we don't proceed to check the next segments for the current split.
+ Example of `continue` in a loop:
+ for (int i = 0; i < 5; i++) {
+   if (i == 2) {
+     continue;
+   }
+   System.out.println(i);
+ }
+ This will print: 0, 1, 3, 4 (skips 2).
+ Example of `break` in a loop:
+ for (int i = 0; i < 5; i++) {
+   if (i == 2) {
+     break;
+   }
+   System.out.println(i);
+ }
+ This will print: 0, 1 (exits the loop when i is 2).
+ In our code, we also have conditions like `if (j > n) break;` in the inner loops. This is to prevent the inner loops from running when the index `j` exceeds the string length, which would cause an error when trying to take a substring.
+ Now, let's walk through the code with a small example.
+ Example: s = "25525511135"
+ Outer loop: i from 1 to 3
+   i=1: first = "2" -> valid -> proceed to inner loop for j
+     j from i+1 (2) to i+3 (4) but also j<=n (11)
+     j=2: second = s.substring(1,2) = "5" -> valid -> proceed to inner loop for k
+       k from j+1 (3) to j+3 (5) and k<=11
+       k=3: third = s.substring(2,3) = "5" -> valid -> fourth = s.substring(3) = "25511135" -> check valid: too long (8 digits) -> invalid
+       k=4: third = s.substring(2,4) = "52" -> valid -> fourth = s.substring(4) = "5511135" -> invalid (7 digits)
+       k=5: third = s.substring(2,5) = "525" -> valid? 525 is between 0 and 255 -> valid -> fourth = s.substring(5) = "511135" -> invalid (6 digits)
+     j=3: second = s.substring(1,3) = "55" -> valid -> then k from 4 to 6
+       k=4: third = s.substring(3,4) = "2" -> valid -> fourth = s.substring(4) = "5511135" -> invalid
+       k=5: third = s.substring(3,5) = "25" -> valid -> fourth = s.substring(5) = "511135" -> invalid
+       k=6: third = s.substring(3,6) = "255" -> valid -> fourth = s.substring(6) = "11135" -> invalid (5 digits)
+     j=4: second = s.substring(1,4) = "552" -> 552 is greater than 255 -> invalid -> skip (continue)
+   i=2: first = "25" -> valid -> proceed
+     j from 3 to 5
+     j=3: second = s.substring(2,3) = "5" -> valid -> k from 4 to 6
+       k=4: third = s.substring(3,4) = "2" -> valid -> fourth = "5511135" -> invalid
+       k=5: third = s.substring(3,5) = "25" -> valid -> fourth = "511135" -> invalid
+       k=6: third = s.substring(3,6) = "255" -> valid -> fourth = "11135" -> invalid
+     j=4: second = s.substring(2,4) = "52" -> valid -> k from 5 to 7
+       k=5: third = s.substring(4,5) = "5" -> valid -> fourth = "11135" -> invalid
+       k=6: third = s.substring(4,6) = "51" -> valid -> fourth = "1135" -> invalid (4 digits, but 1135 is 1135 which is >255 -> invalid)
+       k=7: third = s.substring(4,7) = "511" -> 511>255 -> invalid -> skip
+     j=5: second = s.substring(2,5) = "525" -> 525>255 -> invalid -> skip
+   i=3: first = "255" -> valid -> proceed
+     j from 4 to 6
+     j=4: second = s.substring(3,4) = "2" -> valid -> k from 5 to 7
+       k=5: third = s.substring(4,5) = "5" -> valid -> fourth = "11135" -> invalid
+       k=6: third = s.substring(4,6) = "51" -> valid -> fourth = "1135" -> invalid (1135>255)
+       k=7: third = s.substring(4,7) = "511" -> 511>255 -> invalid
+     j=5: second = s.substring(3,5) = "25" -> valid -> k from 6 to 8
+       k=6: third = s.substring(5,6) = "5" -> valid -> fourth = "1135" -> invalid
+       k=7: third = s.substring(5,7) = "11" -> valid -> fourth = "135" -> valid (135<=255) -> so we have "255.25.11.135" -> but wait, let's check the actual string:
+            first: 255, second: 25 (from index3 to5 -> actually the string is "25525", so second is "25" but note the original string is "25525511135", so:
+            first: indices0-2: "255"
+            second: indices3-4: "25" -> but wait, that's correct? Actually, we are taking substring(3,5) which is the characters at index3 and 4 -> which is "25" (from the next part of the string)
+            third: indices5-6: "11" -> valid
+            fourth: indices7-10: "135" -> but wait, the string length is 11, so indices7 to 10 is 4 characters? Actually, we are taking from index7 to the end -> "11135" from index7? Let me recalculate:
+            Actually, the string is "25525511135"
+            i=3: first = "255"
+            j=5: second = s.substring(3,5) = "25" -> valid
+            k=7: third = s.substring(5,7) = "51" -> wait, no: the substring(5,7) would be the characters at index5 and 6 -> which are '5' and '1' -> so "51" -> but wait, that is not correct because the string after first and second is:
+            The original string: indices 0-2: 255, indices 3-4: 25, then indices 5-6: we are taking for third -> but the next two characters are actually "51" from the string? But the string at index5 is the fifth character:
+            Let's index the string:
+            index0:2, 1:5, 2:5, 3:2, 4:5, 5:5, 6:1, 7:1, 8:1, 9:3, 10:5
+            So for i=3, j=5:
+                first: indices0-2 -> "255"
+                second: indices3-4 -> "25"
+                then k=7: third: indices5-6 -> "55" ? Wait, no: j=5, so we are taking from index5 to 6 -> that's two characters: index5 is '5' and index6 is '1' -> so "51"?
+            But wait, the string from index5 is actually the fifth character: which is the first '5' of the next part? Actually, the string is "25525511135", so:
+            Let me write the indices with characters:
+            0:2, 1:5, 2:5, 3:2, 4:5, 5:5, 6:1, 7:1, 8:1, 9:3, 10:5
+            So for j=5, we are taking second = substring(3,5) -> indices3 and 4: which are '2' and '5' -> so "25"
+            Then for k=7, third = substring(5,7) -> indices5 and 6: which are '5' and '1' -> "51"
+            Then fourth = substring(7) -> from index7 to the end: '1','1','1','3','5' -> "11135" -> which is 5 digits and 11135>255 -> invalid.
+            So we need to continue until we find the valid splits.
+ Actually, the valid splits for "25525511135" are:
+   "255.255.11.135" and "255.255.111.35"
+ So let's find how we get "255.255.11.135":
+   first: 3 characters: "255" -> valid (i=3)
+   second: then j should be i+1=4, but we need to take 3 characters for second? So j should be 3+3=6 -> so j=6: second = substring(3,6) = "255" -> valid
+   then third: k from j+1=7 to j+3=9. We need to take 2 characters for third: so k=7+2=9? Actually, third should be from index6 to index7? Wait, note:
+        first: indices0-2 -> "255"
+        second: indices3-5 -> "255" (because substring(3,6) gives indices3,4,5 -> which are '2','5','5' -> "255")
+        third: then we need to take two characters: indices6-7 -> "11"
+        so k=8: because substring(6,8) gives indices6 and 7 -> "11"
+        fourth: indices8-10 -> "135" -> which is valid.
+   So for i=3, j=6, k=8.
+   Now, check the code:
+        i=3: first valid.
+        j=6: second = substring(3,6) = "255" -> valid.
+        k=8: third = substring(6,8) = "11" -> valid.
+        fourth = substring(8) = "135" -> valid.
+   So we add "255.255.11.135"
+ Similarly, for "255.255.111.35":
+        i=3, j=6, k=9:
+            third = substring(6,9) = "111" -> valid
+            fourth = substring(9) = "35" -> valid.
+   So we add "255.255.111.35"
+ So the code will generate these two.
+ Now, back to the condition: `if (!isValid(first)) continue;`
+   For i=3, first is "255" -> valid -> so we don't skip, we proceed to the inner loops.
+ The condition `continue` is used to skip the current iteration of the loop if the segment is invalid, and move to the next value of the loop variable.
+ The condition `break` in the inner loops (like `if (j > n) break;`) is to prevent the loop from running beyond the string length. For example, if the string length is 5, then when j becomes 6, we break out of the inner loop for j because we cannot have a segment starting beyond the string.
+ I hope this clarifies.
+Explanation of Continue and Break in Loops
+Let me explain the difference between continue and break with simple examples, then show how they work in your IP address code.
+
+Simple Examples
+Continue Statement
+java
+for (int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        continue; // Skip the rest of this iteration
+    }
+    System.out.println("Number: " + i);
+}
+Output:
+
+text
+Number: 1
+Number: 2
+Number: 4
+Number: 5
+The continue statement skips the current iteration when i equals 3, but the loop continues with the next value.
+
+Break Statement
+java
+for (int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        break; // Exit the loop entirely
+    }
+    System.out.println("Number: " + i);
+}
+Output:
+
+text
+Number: 1
+Number: 2
+The break statement completely exits the loop when i equals 3.
+
+In Your IP Address Code
+Let's look at your specific code:
+
+java
+if (!isValid(first)) continue;
+This means:
+
+If the first segment is NOT valid (!isValid(first) returns true)
+
+Then continue to the next iteration of the outer loop (skip trying different j and k values for this invalid first segment)
+
+This saves time by avoiding unnecessary processing
+
+The checks like if (j > n) break; are safety measures to prevent trying to access parts of the string that don't exist.
+
+Complete Runnable Code for IntelliJ
+java
+import java.util.ArrayList;
+import java.util.List;
+
+public class RestoreIPAddresses {
+    public static void main(String[] args) {
+        // Test cases
+        String[] testCases = {
+            "25525511135",
+            "0000",
+            "101023"
+        };
+
+        for (String s : testCases) {
+            System.out.println("Input: " + s);
+            System.out.println("Output: " + restoreIpAddresses(s));
+            System.out.println();
+        }
+    }
+
+    public static List<String> restoreIpAddresses(String s) {
+        List<String> result = new ArrayList<>();
+        int n = s.length();
+        if (n < 4 || n > 12) {
+            return result;
+        }
+
+        for (int i = 1; i < 4; i++) {
+            String first = s.substring(0, i);
+            if (!isValid(first)) continue; // Skip if first segment is invalid
+
+            for (int j = i + 1; j < i + 4 && j <= n; j++) {
+                String second = s.substring(i, j);
+                if (!isValid(second)) continue; // Skip if second segment is invalid
+
+                for (int k = j + 1; k < j + 4 && k <= n; k++) {
+                    String third = s.substring(j, k);
+                    if (!isValid(third)) continue; // Skip if third segment is invalid
+
+                    String fourth = s.substring(k);
+                    if (isValid(fourth)) {
+                        result.add(first + "." + second + "." + third + "." + fourth);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    private static boolean isValid(String segment) {
+        // Check for leading zeros
+        if (segment.length() > 1 && segment.charAt(0) == '0') {
+            return false;
+        }
+
+        // Check if segment is a valid number between 0 and 255
+        try {
+            int num = Integer.parseInt(segment);
+            return num >= 0 && num <= 255;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+}
+Expected Output
+text
+Input: 25525511135
+Output: [255.255.11.135, 255.255.111.35]
+
+Input: 0000
+Output: [0.0.0.0]
+
+Input: 101023
+Output: [1.0.10.23, 1.0.102.3, 10.1.0.23, 10.10.2.3, 101.0.2.3]
+This code will run successfully in IntelliJ IDEA and demonstrate how continue statements help efficiently skip invalid segments during the IP address generation process.
