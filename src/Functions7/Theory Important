@@ -1,0 +1,2 @@
+Parameters: are the named variables in a method's definition that receive input.
+Arguments: are the actual values passed to those parameters when the method is called.
