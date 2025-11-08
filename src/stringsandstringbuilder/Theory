@@ -1,0 +1,31 @@
+
+
+String a = "kunal"
+
+String b = "Kunal"
+
+So does it stores seperately in the heap memory or how it is stored? - Time Stamp 10:00
+
+ it will create a single value in the memory and points to the same value in the memory
+
+ there is a String pool in the memory which is a seperate part in the memory?
+
+ So now the question can we change the values now
+   like b = "arjun" what will happen?
+    will it change or not?
+     Answer NO,  why does it not change it are immutable.
+
+     diagram 14:00 is important
+
+
+// Time Stamp - 29:00 - Very Important
+
+System.out.println();
+
+right in that "out" is an variable of "PrintStream" class
+
+See and observe carefully what is class a datatype so we have a datatype of variable of "out"
+
+
+
+

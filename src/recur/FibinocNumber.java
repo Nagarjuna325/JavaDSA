@@ -4,7 +4,7 @@ public class FibinocNumber {
 
     public static void main(String[] args) {
 
-        int a = 45;
+        int a = 6;
         System.out.println(fib(a));
     }
 
