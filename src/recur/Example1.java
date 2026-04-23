@@ -77,3 +77,7 @@ public class Example1 {
 // 1. Arguments
 // 2. return type
 // 3. Body of the function
+
+// Find the fibonic number of 50 the computer take lot of time
+// why because we are computing the same steps again and again to
+// solve it we use dynamic programming approach
